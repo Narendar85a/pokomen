@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Pokemonn from './components/Pokemonn';
 import './App.css';
+import {pokemon} from './components/Data'
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
         const res = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data = await res.json();
         setPokes(currentList => [...currentList, data])
-      })
+      });
     }
    createPokemonObject(data.result)
    await console.log(pokes)
@@ -25,7 +26,7 @@ function App() {
 
   useEffect (() => {
     getAllPokemons()
-  },[])
+  })
 
   return (
     <div>
