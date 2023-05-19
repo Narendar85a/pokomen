@@ -6,7 +6,7 @@ import {pokemon} from './components/Data'
 function App() {
 
   const [pokes, setPokes] = useState([]);
-  const [loadPoke, setLoadPoke] = useState('https://pokeapi.co/api/v2/pokemon?limit=20');
+  const [loadPoke, setLoadPoke] = useState();
 
   const getAllPokemons = async () => {
     const res = await fetch (loadPoke)
@@ -15,10 +15,10 @@ function App() {
 
     function createPokemonObject(result) {
       result.forEach(async (pokemon) => {
-        const res = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
+        const res = await fetch ()
         const data = await res.json();
         setPokes(currentList => [...currentList, data])
-      });
+      })
     }
    createPokemonObject(data.result)
    await console.log(pokes)
@@ -37,7 +37,7 @@ function App() {
           <Pokemonn 
             id = {pokemon.id}
             name = {pokemon.name}
-            image = {pokemon.sprites.other.dream_world.front_default}
+            image = {pokemon.imageUrl}
             type = {pokemon.type[0].type.name}
             key = {index}
             height = {pokemon.height}

@@ -1,7 +1,7 @@
 export const pokemon = [{
     id : 1,
     name : 'Pikachu',
-    image :'https://www.pokemon.com/us/pokedex/pikachu',
+    imageUrl :'https://example.com/pikachu.png',
     height : '1 ft',
     weight : '13.2 lbs',
     type : 'Electric',
